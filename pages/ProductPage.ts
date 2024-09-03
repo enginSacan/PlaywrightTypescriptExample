@@ -9,7 +9,7 @@ export class ProductPage {
 
     async addProductToCart () {
         await this.page.waitForLoadState('load')
-        await this.page.getByRole('button', { name: 'Select size' }).click();
+        await this.page.getByRole('button', { name: 'Select size' }).click({force:true});
         await this.page.waitForSelector('[data-automation-key-size-enabled="true"] button')
         await this.page.locator('[data-automation-key-size-enabled="true"] button').first().click()
         await this.page.waitForLoadState('load')

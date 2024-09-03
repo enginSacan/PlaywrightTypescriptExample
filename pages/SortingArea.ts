@@ -8,6 +8,7 @@ export class SortingArea {
     }
 
     async sortByLowToHigh () {
+        await this.page.waitForLoadState('load')
         await this.page.getByRole('button', { name: 'Filter & Sort' }).click()
         await this.page.waitForLoadState('load')
         await this.page.locator('button').filter({ hasText: 'Sort byplus' }).click()

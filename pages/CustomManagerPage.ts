@@ -8,6 +8,7 @@ export class CustomManagerPage {
     }
 
     async createCustomJacketWithDefaultValues() {
+        this.page.waitForLoadState('load')
         const customManagerFrame = await this.page.frameLocator('.cm-iframe')
         
         customManagerFrame.locator('[data-test-id="save-btn"]').click()

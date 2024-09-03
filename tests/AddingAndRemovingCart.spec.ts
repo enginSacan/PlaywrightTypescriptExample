@@ -28,7 +28,7 @@ test('Adding and removing clothes to the cart', async ({ page }) => {
     for (let i = 0; i < 2; i++) {
       // Get all products on the page each tıme for eliminating DOM expection
       await page.waitForLoadState('load')
-      const products = await page.$$('[class="link"]')
+      const products = await page.$$('[class="plp-detail-picture plp-detail-picture--default reserve-space"]')
       await products[i]?.scrollIntoViewIfNeeded();
       await products[i].click()
       await productPage.addProductToCart()

@@ -16,7 +16,7 @@ export class CartPage {
         await this.page.waitForSelector('[title="View bag"]')
         await this.page.getByTitle('View bag').click()
         await this.page.waitForSelector('[class="btn btn-primary btn-block checkout-btn js-checkout-btn "]') 
-        const productsInCart = this.page.locator('[data-removed-text="Removed from bag"]')
+        const productsInCart = this.page.locator('.product-card__remove-icon')
         const count = await productsInCart.count();
         for (let i = 0; i < count; i++) {
             const product = productsInCart.nth(i);
