@@ -8,13 +8,21 @@ export class ProductPage {
     }
 
     async addProductToCart () {
-        await this.page.waitForLoadState('load')
-        await this.page.getByRole('button', { name: 'Select size' }).click({force:true});
-        await this.page.waitForSelector('[data-automation-key-size-enabled="true"] button')
-        await this.page.locator('[data-automation-key-size-enabled="true"] button').first().click()
-        await this.page.waitForLoadState('load')
-        await this.page.getByRole('button', { name: 'Add to bag' }).click()
-        await this.page.waitForLoadState('load')
+        
+        const selectSizeBtn      = this.page.getByRole('button', { name: 'Select size' })
+        const firstSizeAvailable = this.page.locator('[data-automation-key-size-enabled="true"] button').first()
+        const addToBagBtn        = this.page.getByRole('button', { name: 'Add to bag' })
+        
+        await this.page.waitForResponse('https://suitsupply.com/nb-collector')
+        
+        await selectSizeBtn.waitFor({state:"visible"})
+        await selectSizeBtn.click();
+
+        await firstSizeAvailable.waitFor({state:"visible"})
+        await firstSizeAvailable.click()
+        
+        await addToBagBtn.click()
+        await this.page.waitForLoadState('networkidle')
     }
 
 }

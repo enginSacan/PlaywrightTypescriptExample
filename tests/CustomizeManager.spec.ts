@@ -13,12 +13,15 @@ test('Custom Manager Happy Path', async ({ page }) => {
   const homePage = new HomePage(page)
   const customManager = new CustomManagerPage (page)
 
+  const productTitle = page.locator('.product-card__title')
+
   await homePage.goToCustomJacket()
   await removeAlertMessage(page)
   await customManager.createCustomJacketWithDefaultValues()
 
   await homePage.goToCart()
-  await page.waitForSelector('[class="product-card__title"]')
-  await expect(page.locator('[class="product-card__title"]')).toContainText('Custom Made Jacket');
+  await page.waitForResponse('https://suitsupply.com/en-nl/cart')
+  await page.waitForSelector('.product-card__title')
+  await expect(productTitle).toContainText('Custom Made Jacket');
     
 });

@@ -1,7 +1,6 @@
 import { test, expect } from '@playwright/test';
 import {HomePage} from '../pages/HomePage';
 import {SortingArea} from '../pages/SortingArea';
-import { removeAlertMessage } from '../utils/utils';
 
 test.beforeEach (async ({page}) => {
   await page.goto('/');

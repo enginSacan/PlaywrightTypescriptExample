@@ -8,7 +8,7 @@ export class CartPage {
     }
 
     async emptyCart () {
-        await this.page.waitForLoadState('load')
+        await this.page.waitForLoadState('networkidle')
         await this.page.evaluate(() => {
             window.scrollTo(0, 0);
             window.scrollTo(0, 0);
@@ -19,9 +19,9 @@ export class CartPage {
         const productsInCart = this.page.locator('.product-card__remove-icon')
         const count = await productsInCart.count();
         for (let i = 0; i < count; i++) {
-            const product = productsInCart.nth(i);
+            const product = productsInCart.nth(0);
             await product.click();
-            await this.page.waitForLoadState('load')
+            await this.page.waitForResponse('https://u.clarity.ms/collect')
         }
     }
     
