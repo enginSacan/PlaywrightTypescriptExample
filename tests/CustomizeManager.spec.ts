@@ -9,6 +9,10 @@ test.beforeEach (async ({page}) => {
  
 })
 
+test.afterAll(async ({page}) => {
+  await page.close()
+})
+
 test('Custom Manager Happy Path', async ({ page }) => {
   const homePage = new HomePage(page)
   const customManager = new CustomManagerPage (page)

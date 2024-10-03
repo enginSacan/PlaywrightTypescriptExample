@@ -7,6 +7,10 @@ test.beforeEach (async ({page}) => {
   await page.getByRole('button', { name: 'Accept' }).click();
 })
 
+test.afterAll(async ({page}) => {
+  await page.close()
+})
+
 test('Listing the sneakers from low to high price', async ({ page }) => {
   const homePage = new HomePage(page)
   const sort = new SortingArea(page)

@@ -11,6 +11,9 @@ test.beforeEach (async ({page}) => {
     await removeAlertMessage(page)
 })
 
+test.afterAll(async ({page}) => {
+  await page.close()
+})
 test('Adding and removing clothes to the cart', async ({ page }) => {
     const homePage = new HomePage(page)
     const sort = new SortingArea(page)
