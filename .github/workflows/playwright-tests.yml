@@ -9,11 +9,6 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-
-    services:
-      xvfb:
-        image: 'circleci/xvfb:latest'
-        options: '--privileged'
     
     steps:
       - name: Checkout repository
