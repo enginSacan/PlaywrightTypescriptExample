@@ -31,6 +31,6 @@ iii. As tear down, remove all added items from cart and verify message "Your bag
 Verify Suitsupply's Custom Made (CM) configurator that is available on website.
 
 i. Automate one happy flow for Custom Made Jacket configurator
-Website > CM Jacket configurator > Size Passport > Add to Bag > Cart
+   Website > CM Jacket configurator > Size Passport > Add to Bag > Cart
 ii. Check CM Jacket configurator flow until customer cart. Document manual test cases and findings
-Flow: Website > CM Jacket configurator > Size Passport > Add to Bag > Cart
+   Flow: Website > CM Jacket configurator > Size Passport > Add to Bag > Cart
